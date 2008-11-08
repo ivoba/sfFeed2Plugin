@@ -89,7 +89,7 @@ $t->is((string) $feedXml->title, $feedParams['title'], '<title> contains the pro
 $t->is((string) $feedXml->link[0]['href'], $feedParams['link'], '<link ref="alternate"> contains the proper link');
 $t->is((string) $feedXml->link[1]['href'], $feedParams['feedUrl'], '<link ref="self"> contains the proper link');
 $t->is((string) $feedXml->id, $feedParams['link'], '<id> contains the proper id');
-$t->is((string) $feedXml->updated, strftime('%Y-%m-%dT%H:%M:%SZ', $item2Params['pubDate']), '<updated> contains the latest publication date of all feed items');
+$t->is((string) $feedXml->updated, gmstrftime('%Y-%m-%dT%H:%M:%SZ', $item2Params['pubDate']), '<updated> contains the latest publication date of all feed items');
 $t->is((string) $feedXml->author->name, $feedParams['authorName'], '<author><name> contains the author name');
 $t->is((string) $feedXml->author->email, $feedParams['authorEmail'], '<author><author_email> contains the author email');
 $t->is((string) $feedXml->author->uri, $feedParams['authorLink'], '<author><author_link> contains the author link');
@@ -102,7 +102,7 @@ $t->is((string) $feedXml->logo, $image_params['image'], '<logo> contains the pro
 $t->diag('toXML() - generated feed items');
 $t->is((string) $feedXml->entry[0]->title, $itemParams['title'], '<entry><title> contains the item title');
 $t->is((string) $feedXml->entry[0]->link['href'], $itemParams['link'], '<entry><link ref="alternate"> contains the proper item link');
-$t->is((string) $feedXml->entry[0]->updated, strftime('%Y-%m-%dT%H:%M:%SZ', $itemParams['pubDate']), '<entry><updated> contains the proper item publication date');
+$t->is((string) $feedXml->entry[0]->updated, gmstrftime('%Y-%m-%dT%H:%M:%SZ', $itemParams['pubDate']), '<entry><updated> contains the proper item publication date');
 $t->is((string) $feedXml->entry[0]->author->name, $itemParams['authorName'], '<entry><author><name> contains the item author name');
 $t->is((string) $feedXml->entry[0]->author->email, $itemParams['authorEmail'], '<entry><author><author_email> contains the item author email');
 $t->is((string) $feedXml->entry[0]->author->uri, $itemParams['authorLink'], '<entry><author><author_link> contains the item author link');
