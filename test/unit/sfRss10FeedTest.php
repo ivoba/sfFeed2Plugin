@@ -86,7 +86,7 @@ $t->is((string) $feedXml->item[0]->title, $itemParams['title'], '<item><title> c
 $t->is((string) $feedXml->item[0]->link, $itemParams['link'], '<item><link> contains the proper item link');
 $t->is((string) $feedXml->item[0]->description, $itemParams['description'], '<item><description> contains the item description');
 $t->is((string) $feedXml->item[0]->encoded, $itemParams['content'], '<item><content:encoded> contains the item content');
-$t->is((string) $feedXml->item[0]->date, strftime('%Y-%m-%dT%H:%M:%SZ', $itemParams['pubDate']), '<item><dc:date> contains the proper item publication date');
+$t->is((string) $feedXml->item[0]->date, gmstrftime('%Y-%m-%dT%H:%M:%SZ', $itemParams['pubDate']), '<item><dc:date> contains the proper item publication date');
 $t->is((string) $feedXml->item[0]->creator, $itemParams['authorName'], '<item><dc:creator> contains the proper item author name');
 
 $t->diag('asXML() - generated feed');
