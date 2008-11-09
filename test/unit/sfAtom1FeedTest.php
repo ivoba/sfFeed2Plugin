@@ -1,7 +1,5 @@
 <?php
 
-define('SF_ROOT_DIR', realpath(dirname(__FILE__).'/../../../..'));
-define('SF_APP',      'frontend');
 include(dirname(__FILE__).'/../../../../test/bootstrap/functional.php');
 
 $b = new sfTestBrowser();
@@ -18,7 +16,7 @@ $feedParams = array(
   'subtitle' => 'hey, foo, this is bar', 
   'categories' => array('foo', 'bar'),
   'feedUrl' => 'http://www.example.com',
-  'encoding' => 'UTF-16'
+  'encoding' => 'utf-8'
 );
 
 $enclosureParams = array(

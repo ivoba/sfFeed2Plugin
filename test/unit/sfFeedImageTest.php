@@ -1,7 +1,5 @@
 <?php
 
-define('SF_ROOT_DIR', realpath(dirname(__FILE__).'/../../../..'));
-define('SF_APP',      'frontend');
 include(dirname(__FILE__).'/../../../../test/bootstrap/functional.php');
 
 $b = new sfTestBrowser();
