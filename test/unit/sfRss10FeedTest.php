@@ -91,7 +91,7 @@ $t->is((string) $feedXml->item[0]->creator, $itemParams['authorName'], '<item><d
 
 $t->diag('asXML() - generated feed');
 $feedString = $feed->asXml();
-$t->is(sfContext::getInstance()->getResponse()->getContentType(), 'application/rss+xml; charset=utf-8', 'The reponse comes with the correct Content-Type');
+$t->is(sfContext::getInstance()->getResponse()->getContentType(), 'application/rss+xml; charset=UTF-16', 'The reponse comes with the correct Content-Type');
 
 $t->diag('fromXML() - generated feed');
 $generatedFeed = new sfRss10Feed();
