@@ -12,7 +12,7 @@
  </lead>
  <date>2008-11-12</date>
  <version>
-   <release>1.2.1</release>
+   <release>1.2.2</release>
    <api>1.2.0</api>
  </version>
  <stability>
@@ -25,6 +25,7 @@
    <dir name="/">
      <dir name="lib">
        <file name="sfFeed.class.php" role="data"/>
+       <file name="sfFeedImage.class.php" role="data" />
        <file name="sfFeedItem.class.php" role="data"/>
        <file name="sfFeedEnclosure.class.php" role="data"/>
        <file name="sfAtom1Feed.class.php" role="data"/>
@@ -89,6 +90,21 @@
      <date>2008-11-12</date>
      <notes>
        * stefan: ensured backwards compatibility
+     </notes>
+   </release>
+    <release>
+     <version>
+       <release>1.2.2</release>
+       <api>1.2.0</api>
+     </version>
+     <stability>
+      <release>stable</release>
+      <api>stable</api>
+     </stability>
+     <license uri="http://www.symfony-project.com/license">MIT license</license>
+     <date>2009-02-07</date>
+     <notes>
+       * stefan: fix for ticket #4912
      </notes>
    </release>
  </changelog>
