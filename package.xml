@@ -12,7 +12,7 @@
  </lead>
  <date>2009-02-07</date>
  <version>
-   <release>1.2.2</release>
+   <release>1.2.3</release>
    <api>1.2.0</api>
  </version>
  <stability>
@@ -105,6 +105,21 @@
      <date>2009-02-07</date>
      <notes>
        * stefan: fix for ticket #4912
+     </notes>
+   </release>
+    <release>
+     <version>
+       <release>1.2.3</release>
+       <api>1.2.0</api>
+     </version>
+     <stability>
+      <release>stable</release>
+      <api>stable</api>
+     </stability>
+     <license uri="http://www.symfony-project.com/license">MIT license</license>
+     <date>2009-02-07</date>
+     <notes>
+       * stefan: fixes for tickets #5796 and #3241
      </notes>
    </release>
  </changelog>
