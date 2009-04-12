@@ -460,6 +460,8 @@ public function executeLastPosts()
 }
 }}}
 
+By default, the aggregator sorts all items in reverse chronological order. If you wish to sort them in chronological order instead, add 'sort' => 'chronological' to the parameters array.
+
 == TODO ==
 
  * unit test the `sfFeedPeer` class
