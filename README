@@ -203,7 +203,7 @@ At the end of the action, the `$feed` variable contains a `sfAtom1Feed` object w
 
 {{{
 <?php decorate_with(false) ?>
-<?php echo $feed->asXml() ?>
+<?php echo $feed->asXml(ESC_RAW) ?>
 }}}
 
 The content type is automatically set by the `asXML()` method, depending on the feed format (Atom1 in this example).
