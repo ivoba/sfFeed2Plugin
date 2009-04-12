@@ -149,9 +149,17 @@ class sfFeedPeer
       }
     }
 
-    // sort in reverse chronological order
-    krsort($feed_items);
-
+    // when specified, sort items chronologically instead of reverse
+    if (isset($parameters['sort']) && 'chronological' == $parameters['sort'])
+    {
+      ksort($feed_items);
+    }
+    else 
+    {
+      // default behaviour: sort in reverse chronological order 
+      krsort($feed_items);
+    }
+    
     // limit the number of feed items to be added
     if(isset($parameters['limit']))
     {
