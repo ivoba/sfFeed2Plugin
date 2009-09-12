@@ -462,6 +462,19 @@ public function executeLastPosts()
 
 By default, the aggregator sorts all items in reverse chronological order. If you wish to sort them in chronological order instead, add 'sort' => 'chronological' to the parameters array.
 
+=== Adding an image to the feed ===
+
+To add an image to the feed, use the sfFeedImage class
+
+{{{
+$feed = new sfRss201Feed();
+
+$feedImage = new sfFeedImage();
+$feedImage->setLink('http://www.example.org/images/feed-image.png');
+$feedImage->setTitle('My Title');
+$feed->setImage($feedImage)
+}}}}
+
 == TODO ==
 
  * unit test the `sfFeedPeer` class
