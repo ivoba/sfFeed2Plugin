@@ -140,7 +140,7 @@ class sfFeedPeer
     {
       foreach($feed->getItems() as $item)
       {
-        $index = is_integer($item->getPubDate()) ?  $item->getPubDate() : 0;
+        $index = is_integer($item->getPubDate()) || ctype_digit($item->getPubDate()) ?  $item->getPubDate() : 0;
         while(isset($feed_items[$index]))
         {
           $index++;
