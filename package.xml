@@ -122,5 +122,20 @@
        * stefan: fixes for tickets #5796 and #3241
      </notes>
    </release>
+    <release>
+     <version>
+       <release>1.2.4</release>
+       <api>1.2.0</api>
+     </version>
+     <stability>
+      <release>stable</release>
+      <api>stable</api>
+     </stability>
+     <license uri="http://www.symfony-project.com/license">MIT license</license>
+     <date>2009-09-13</date>
+     <notes>
+       * stefan: various fixes for tickets, including documentation
+     </notes>
+   </release>
  </changelog>
 </package>
