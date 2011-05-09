@@ -59,6 +59,12 @@ class sfAtom1Feed extends sfFeed
     $this->setLanguage((string) $attributes['lang']);
     $this->setTitle((string) $feedXml->title);
     $feedXml->registerXPathNamespace('atom', 'http://www.w3.org/2005/Atom');
+    $namespaces = $feedXml->getNamespaces(true);
+    foreach ($namespaces as $prefix => $ns) {
+      if($prefix != ''){
+        $feedXml->registerXPathNamespace($prefix, $ns);
+      }
+    }
     if($titles = $feedXml->xpath('atom:link[@rel="alternate"]'))
     {
        $this->setLink((string) $titles[0]['href']);
@@ -87,6 +93,14 @@ class sfAtom1Feed extends sfFeed
 
     foreach($feedXml->entry as $itemXml)
     {
+      if(sizeof($namespaces) > 0){
+        $additional = array();
+        foreach ($namespaces as $prefix => $ns) {
+          if($prefix != ''){
+            $additional[$prefix] = $itemXml->children($ns);
+          }
+        }
+      }
       $categories = array();
       foreach($itemXml->category as $category)
       {
@@ -145,7 +159,8 @@ class sfAtom1Feed extends sfFeed
         'uniqueId'    => (string) $itemXml->id,
         'enclosure'   => $enclosure,
         'categories'  => $categories,
-        'feed'        => $this
+        'feed'        => $this,
+        'additional'  => $additional
       ));
     }
 

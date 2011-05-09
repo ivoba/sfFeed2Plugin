@@ -30,6 +30,7 @@ class sfFeedItem
    $uniqueId,
    $enclosure,
    $categories = array(),
+   $additional = array(),
    $feed;
 
   public function __construct($item_array = array())
@@ -62,6 +63,7 @@ class sfFeedItem
     $this->setEnclosure(isset($item_array['enclosure']) ? $item_array['enclosure'] : '');
     $this->setCategories(isset($item_array['categories']) ? $item_array['categories'] : '');
     $this->setFeed(isset($item_array['feed']) ? $item_array['feed'] : '');
+    $this->setAdditional(isset($item_array['additional']) ? $item_array['additional'] : '');
 
     return $this;
   }
@@ -84,6 +86,16 @@ class sfFeedItem
   public function getLink ()
   {
     return $this->link;
+  }
+  
+  public function setAdditional ($additional)
+  {
+    $this->additional = $additional;
+  }
+  
+   public function getAdditional ()
+  {
+    return $this->additional;
   }
 
   public function setDescription ($description)

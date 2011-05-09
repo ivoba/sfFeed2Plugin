@@ -70,7 +70,14 @@ class sfRssFeed extends sfFeed
     $this->setLink((string) $feedXml->channel[0]->link);
     $this->setDescription((string) $feedXml->channel[0]->description);
     $this->setLanguage((string) $feedXml->channel[0]->language);
-
+    
+    $namespaces = $feedXml->getNamespaces(true);
+    foreach ($namespaces as $prefix => $ns) {
+      if($prefix!=''){
+        $feedXml->registerXPathNamespace($prefix, $ns);
+      }
+    }
+    
     if ($feedXml->channel[0]->image)
     {
       $image = new sfFeedImage(array(
@@ -143,6 +150,14 @@ class sfRssFeed extends sfFeed
       {
         $enclosure = null;
       }
+      
+      $additional = array();
+      foreach ($namespaces as $prefix => $ns) {
+        if($prefix!=''){
+          $additional[$prefix] = $itemXml->children($ns);
+        }
+      }
+      
       $this->addItemFromArray(array(
         'title'       => (string) $itemXml->title,
         'link'        => $url,
@@ -155,7 +170,8 @@ class sfRssFeed extends sfFeed
         'uniqueId'    => (string) $itemXml->guid,
         'enclosure'   => $enclosure,
         'categories'  => $categories,
-        'feed'        => $this
+        'feed'        => $this,
+        'additional'  => $additional
       ));
     }
   }
